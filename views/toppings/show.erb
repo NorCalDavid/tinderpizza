@@ -1,0 +1,17 @@
+<h1>Pizza <a href="/pizzas/<%= @pizza.id %>"><%= @pizza.name %></a></h1>
+
+<div><h1>Topping <%= @topping.name %></h1>
+   <div>
+    <%= @topping.calories %> cals
+   </div>
+</div>
+
+<div class="row">
+    <a class="btn" href="/pizzas/<%= @pizza.id %>">Cancel</a>
+    <a class="btn" href="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>/edit">Edit</a>
+    <a class="btn post_link" data-form-id="#post_form" href="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>/delete">Delete</a>
+</div>
+
+<%# Hidden form for Delete Post via link %>
+<form id="post_form" class="hide" action="" method="post"></form>
+

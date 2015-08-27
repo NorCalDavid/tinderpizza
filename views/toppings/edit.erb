@@ -1,0 +1,6 @@
+<h1>Pizza <a href="/pizzas/<%= @pizza.id %>"><%= @pizza.name %></a></h1>
+
+<div id="edit_topping_container">
+  <%= erb :'toppings/_form', locals: {:topping => @topping, :pizza => @pizza } %>
+</div>
+

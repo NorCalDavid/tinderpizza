@@ -1,0 +1,35 @@
+<div class="card large">
+  <div class="card-image">
+   <img src="/images/pizza.jpg" alt="" class="circle">
+    <span class="card-title"><%= @pizza.name %></span>
+  </div>
+  <div class="card-content">
+    <p><%= formating_price @pizza.price_cents %></p>
+    <p><%= formating_diameter @pizza.diameter_inches %></p>
+  </div>
+  <div class="card-action">
+    <a id="new-topping-form-container-button" href="/pizzas/<%= @pizza.id %>/toppings/new">Add Topping</a>
+    <a href="/pizzas/<%= @pizza.id %>/edit">Edit</a>
+    <a class="post_link" data-form-id="#post_form" data-confirm="Are you sure?" href="/pizzas/<%= @pizza.id %>/delete">Delete</a>
+   </div>
+</div>
+
+<h4>Toppings</h4>
+<ul class="collection">
+  <% @pizza.toppings.each do |topping| %>
+    <li class="collection-item"><a href="/pizzas/<%= @pizza.id %>/toppings/<%= topping.id %>"><%= topping.name %></a></li>
+  <% end %>
+</ul>
+
+ <!-- Modal Structure -->
+  <div id="new-topping-modal" class="modal">
+    <div class="modal-content">
+      <%= erb :'toppings/_form', locals: {:pizza => @pizza, :topping => Topping.new } %>
+    </div>
+  </div>
+
+
+
+<%# Hidden form for Delete Post via link %>
+<form id="post_form" class="hide" action="" method="post"></form>
+

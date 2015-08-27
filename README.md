@@ -44,3 +44,36 @@ end
 * Added static ``/about_us`` route
 * Added ``controllers/pizza_controller.rb``
 
+# Nested Routes
+* Toppings Belong to Pizzas
+* ``controlers/topping_controller.rb``
+* ``views/toppings``
+
+# Secret Random Keys
+* ``models/pizza.rb`` - ``before_create``
+* ``db/migrate/XXX_add_secret_key_to_pizzas.rb``
+
+# 2.1.3.A Controller Testing
+* [RSpec to test Sinatra](http://recipes.sinatrarb.com/p/testing/rspec)
+* Need to support different databases for testing and development
+  * Use ``RACK_ENV``
+  * Look at the ``set :database`` line in ``tinderpizza.rb``
+  * ``RACK_ENV=test rake db:create``
+  * ``RACK_ENV=test rake db:migrate``
+* Create specs in folders underneath ``./spec`` folder
+* ``bundle exec rspec``
+
+# 2.2.3.P Ajax Prep
+* [Use a partial to render each pizza](http://www.sinatrarb.com/faq.html#partials)
+* Use a partial for the pizza form
+* Use helper to format prices
+
+# 2.2.3.P Ajax Lecture
+* What is AJAX?
+* [8 Ball Example](https://github.com/stujo/javascript-sinatra-ajax-8ball)
+* How do I use AJAX to post a form?
+* [Calculator Example](https://github.com/stujo/javascript-sinatra-ajax-calculator)
+* Tinder Pizza Add Pizza via Ajax
+
+
+
